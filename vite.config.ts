@@ -1,10 +1,16 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react-swc';
 import path from 'path';
-
+import tailwindcss from 'tailwindcss';
+import autoprefixer from 'autoprefixer';
 // 공통 설정
 const commonConfig = defineConfig({
   plugins: [react()],
+  css: {
+    postcss: {
+      plugins: [tailwindcss(), autoprefixer({})],
+    },
+  },
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src'),
@@ -34,16 +40,15 @@ const mainConfig = defineConfig({
   build: {
     rollupOptions: {
       input: {
-        background: './src/background.ts', // Background Script
-        popup: './index.html', // Popup HTML
+        background: './src/background.ts',
       },
       output: {
-        format: 'es', // ESModules 형식
+        format: 'es',
         entryFileNames: '[name].js',
       },
     },
     outDir: 'dist',
-    emptyOutDir: true, // 기본 빌드 시 디렉토리 초기화
+    emptyOutDir: true,
   },
 });
 
