@@ -8,6 +8,7 @@ import { MediaElement } from './interfaces/MediaElementInterface';
 const testMediaElements: MediaElement[] = [
   {
     type: 'image',
+    name: 'test.png',
     src: 'https://picsum.photos/800/450', // 무작위 테스트 이미지
     alt: '테스트 이미지',
     width: 800,
@@ -15,6 +16,7 @@ const testMediaElements: MediaElement[] = [
   },
   {
     type: 'video',
+    name: 'test.mp4',
     src: 'https://test-videos.co.uk/vids/bigbuckbunny/mp4/h264/720/Big_Buck_Bunny_720_10s_1MB.mp4', // 샘플 비디오
     width: 1280,
     height: 720,

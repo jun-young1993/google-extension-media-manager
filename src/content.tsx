@@ -1,15 +1,7 @@
 import { createRoot } from 'react-dom/client';
 import MediaPanel from './components/MediaPanel';
 import './styles/tailwind.css';
-
-// 미디어 요소 인터페이스
-interface MediaElement {
-  type: 'image' | 'video';
-  src: string;
-  alt?: string;
-  width?: number;
-  height?: number;
-}
+import { MediaElement } from './interfaces/MediaElementInterface';
 
 // 페이지의 모든 미디어 요소 수집
 function getMediaElements(): MediaElement[] {
@@ -24,6 +16,7 @@ function getMediaElements(): MediaElement[] {
         alt: img.alt,
         width: img.width,
         height: img.height,
+        name: '',
       });
     }
   });
@@ -37,6 +30,7 @@ function getMediaElements(): MediaElement[] {
         src,
         width: video.width,
         height: video.height,
+        name: '',
       });
     }
   });

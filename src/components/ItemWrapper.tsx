@@ -5,6 +5,7 @@ interface ItemWrapperProps {
   isSelected: boolean;
   onSelect: (selected: boolean) => void;
   onClick: () => void;
+  onContextMenu: (event: React.MouseEvent) => void;
 }
 
 const ItemWrapper = ({
@@ -12,6 +13,7 @@ const ItemWrapper = ({
   isSelected,
   onSelect,
   onClick,
+  onContextMenu,
 }: ItemWrapperProps) => {
   return (
     <div
@@ -19,6 +21,7 @@ const ItemWrapper = ({
         isSelected ? 'ring-2 ring-blue-500' : ''
       }`}
       onClick={onClick}
+      onContextMenu={onContextMenu}
     >
       <div className="absolute top-2 left-2">
         <input
